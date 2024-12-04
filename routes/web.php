@@ -16,3 +16,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+route::get('/hello', function(){
+    return 'Hello World';
+});
+
+route::get('/perkalian/{angka}', function($angka){
+    return $angka * 2;
+});
