@@ -4,11 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\Car;
 
 class CarController extends Controller
 {
     public function index(){
-        $cars = DB::table('cars')->get();
+        $cars = Car::all();
         return view('cars.index', ['cars' => $cars]);
     }
 
@@ -24,24 +25,19 @@ class CarController extends Controller
             'year' => ['required', 'numeric']
         ]);
 
-        DB::table('cars')->insert([
-            'name' => $request->name,
-            'type' => $request->type,
-            'price' => $request->price,
-            'year' => $request->year
-        ]);
+        Car::create($request->all());
 
-        return redirect('cars');
+        return redirect()->route('cars.index');
     }
 
     public function show($id)
     {
-        $car = DB::table('cars')->where('id', $id)->first();
+        $car = Car::findOrFail($id);
         return view('cars.show', ['car' => $car]);
     }
 
     public function edit($id){
-        $car = DB::table('cars')->where('id', $id)->first();
+        $car = Car::findOrFail($id);
         return view('cars.edit', ['car' => $car]);
     }
 
@@ -53,18 +49,16 @@ class CarController extends Controller
             'year' => ['required', 'numeric']
         ]);
 
-        DB::table('cars')->where('id', $id)->update([
-            'name' => $request->name,
-            'type' => $request->type,
-            'price' => $request->price,
-            'year' => $request->year
-        ]);
+        $car = Car::findOrFail($id);
+        $car->update($request->all());
 
-        return redirect('cars');
+        return redirect()->route('cars.index');
     }
 
     public function destroy($id){
-        DB::table('cars')->where('id', $id)->delete();
-        return redirect('cars');
+        $car = Car::findOrFail($id);
+        $car->delete();
+
+        return redirect()->route('cars.index');
     }
 }

@@ -25,5 +25,6 @@
                 <td>{{ $car->year }}</td>
             </tr>
         </table>
+        <a href="{{ route('cars.index') }}" class="btn btn-primary">Back to List</a>
     </div>
 @endsection
