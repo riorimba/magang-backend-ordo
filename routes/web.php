@@ -19,4 +19,5 @@ Route::get('/', function () {
 });
 
 Route::get('/hello', [HelloWorldController::class, 'hello']);
-route::get('/perkalian/{angka}', [NumberOperationsController::class, 'multiplication']);
+Route::get('/perkalian/{angka}', [NumberOperationsController::class, 'multiplication']);
+Route::get('/tambah', [NumberOperationsController::class, 'addition']);
