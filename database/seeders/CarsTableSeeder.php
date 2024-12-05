@@ -19,18 +19,21 @@ class CarsTableSeeder extends Seeder
                 'type' => 'Sedan',
                 'price' => 20000,
                 'year' => '2015',
+                'manufacture_id' => 1,
             ],
             [
                 'name' => 'Honda Civic',
                 'type' => 'Sedan',
                 'price' => 22000,
                 'year' => '2021',
+                'manufacture_id' => 2,
             ],
             [
                 'name' => 'Ford F-150',
                 'type' => 'Truck',
                 'price' => 30000,
                 'year' => '2019',
+                'manufacture_id' => 3,
             ],
         ]);
     }

@@ -5,21 +5,18 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Car extends Model
+class Manufacture extends Model
 {
     use HasFactory;
 
-    protected $table = 'cars';
+    protected $table = 'manufactures';
 
     protected $fillable = [
         'name',
-        'type',
-        'price',
-        'year',
+        'address',
     ];
 
-    public function manufacture()
-    {
-        return $this->hasOne(Manufacture::class);
+    public function car(){
+        return $this->belongsTo(Car::class);
     }
 }

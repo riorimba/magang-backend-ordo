@@ -24,6 +24,10 @@
                 <th>Year</th>
                 <td>{{ $car->year }}</td>
             </tr>
+            <tr>
+                <th>Manufacture id</th>
+                <td>{{ $car->manufacture_id }}</td>
+            </tr>
         </table>
         <a href="{{ route('cars.index') }}" class="btn btn-primary">Back to List</a>
     </div>
