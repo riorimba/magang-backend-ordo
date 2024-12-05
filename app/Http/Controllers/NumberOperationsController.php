@@ -14,6 +14,6 @@ class NumberOperationsController extends Controller
         $number1 = $request->input('angka1');
         $number2 = $request->input('angka2');
         $result = $number1 + $number2;
-        return $result;
+        return view('addition', ['result' => $result]);
     }
 }
