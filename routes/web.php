@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\HelloWorldController;
+use App\Http\Controllers\NumberOperationsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,10 +18,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-route::get('/hello', function(){
-    return 'Hello World';
-});
-
-route::get('/perkalian/{angka}', function($angka){
-    return $angka * 2;
-});
+Route::get('/hello', [HelloWorldController::class, 'hello']);
+route::get('/perkalian/{angka}', [NumberOperationsController::class, 'multiplication']);
