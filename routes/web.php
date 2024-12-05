@@ -20,4 +20,6 @@ Route::get('/', function () {
 
 Route::get('/hello', [HelloWorldController::class, 'hello']);
 Route::get('/perkalian/{angka}', [NumberOperationsController::class, 'multiplication']);
+
+Route::get('/operasi-bilangan', [NumberOperationsController::class, 'index']);
 Route::get('/tambah', [NumberOperationsController::class, 'addition']);
