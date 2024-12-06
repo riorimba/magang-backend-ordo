@@ -6,6 +6,7 @@ use App\Http\Controllers\NumberOperationsController;
 use App\Http\Controllers\CarController;
 use App\Http\Controllers\ManufactureController;
 use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\FeatureController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -34,6 +35,8 @@ Route::get('/cars/{id}', [CarController::class, 'show'])->name('cars.show');
 Route::get('/cars/{id}/edit', [CarController::class, 'edit'])->name('cars.edit');
 Route::put('/cars/{id}', [CarController::class, 'update'])->name('cars.update');
 Route::delete('/cars/{id}', [CarController::class, 'destroy'])->name('cars.destroy');
+Route::get('cars/{car}/add-features', [CarController::class, 'addFeatures'])->name('cars.add-features');
+Route::post('cars/{car}/add-features', [CarController::class, 'storeFeatures'])->name('cars.store-features');
 
 Route::get('/manufactures', [ManufactureController::class, 'index'])->name('manufactures.index');
 Route::get('/manufactures/create', [ManufactureController::class, 'create'])->name('manufactures.create');
@@ -50,3 +53,12 @@ Route::get('/reviews/{id}', [ReviewController::class, 'show'])->name('reviews.sh
 Route::get('/reviews/{id}/edit', [ReviewController::class, 'edit'])->name('reviews.edit');
 Route::put('/reviews/{id}', [ReviewController::class, 'update'])->name('reviews.update');
 Route::delete('/reviews/{id}', [ReviewController::class, 'destroy'])->name('reviews.destroy');
+
+Route::get('/features', [FeatureController::class, 'index'])->name('features.index');
+Route::get('/features/create', [FeatureController::class, 'create'])->name('features.create');
+Route::post('/features', [FeatureController::class, 'store'])->name('features.store');
+Route::get('/features/{id}', [FeatureController::class, 'show'])->name('features.show');
+Route::get('/features/{id}/edit', [FeatureController::class, 'edit'])->name('features.edit');
+Route::put('/features/{id}', [FeatureController::class, 'update'])->name('features.update');
+Route::delete('/features/{id}', [FeatureController::class, 'destroy'])->name('features.destroy');
+

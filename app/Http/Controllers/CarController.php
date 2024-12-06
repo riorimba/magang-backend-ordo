@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Car;
+use App\Models\Feature;
 
 class CarController extends Controller
 {
@@ -21,23 +22,27 @@ class CarController extends Controller
             'name' => ['required'],
             'type' => ['required'],
             'price' => ['required', 'numeric'],
-            'year' => ['required', 'numeric']
+            'year' => ['required', 'numeric'],
+            'manufacture_id' => ['required'],
+            'features' => ['array']
         ]);
 
-        Car::create($request->all());
+        $car = Car::create($request->all());
+        $car->features()->sync($request->features);
 
         return redirect()->route('cars.index');
     }
 
     public function show($id)
     {
-        $car = Car::findOrFail($id);
+        $car = Car::with('features')->findOrFail($id);
         return view('cars.show', ['car' => $car]);
     }
 
     public function edit($id){
-        $car = Car::findOrFail($id);
-        return view('cars.edit', ['car' => $car]);
+        $car = Car::with('features')->findOrFail($id);
+        $features = Feature::all();
+        return view('cars.edit', ['car' => $car, 'features' => $features]);
     }
 
     public function update($id, Request $request){
@@ -45,11 +50,14 @@ class CarController extends Controller
             'name' => ['required'],
             'type' => ['required'],
             'price' => ['required', 'numeric'],
-            'year' => ['required', 'numeric']
+            'year' => ['required', 'numeric'],
+            'manufacture_id' => ['required'],
+            'features' => ['array']
         ]);
 
         $car = Car::findOrFail($id);
         $car->update($request->all());
+        $car->features()->sync($request->features);
 
         return redirect()->route('cars.index');
     }
@@ -59,5 +67,20 @@ class CarController extends Controller
         $car->delete();
 
         return redirect()->route('cars.index');
+    }
+
+    public function addFeatures($id)
+    {
+        $car = Car::findOrFail($id);
+        $features = Feature::all();
+        return view('cars.add-features', ['car' => $car, 'features' => $features]);
+    }
+
+    public function storeFeatures(Request $request, $id)
+    {
+        $car = Car::findOrFail($id);
+        $car->features()->sync($request->features);
+
+        return redirect()->route('cars.show', $car->id);
     }
 }

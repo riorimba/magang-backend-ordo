@@ -21,6 +21,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url('/reviews') }}">Reviews</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('/features') }}">Features</a>
+                </li>
             </ul>
         </div>
     </nav>

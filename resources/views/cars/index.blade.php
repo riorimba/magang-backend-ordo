@@ -22,13 +22,14 @@
                 <td>{{ $car->year }}</td>
                 <td>
 
-                    <a class="btn btn-info" href="{{ route('cars.show', $car->id) }}">Show</a>
-                    <form action="{{ route('cars.destroy', $car->id) }}" method="POST">
-                        <a class="btn btn-primary" href="{{ route('cars.edit', $car->id) }}">Edit</a>
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="btn btn-danger">Delete</button>
-                    </form>
+                <a href="{{ route('cars.show', $car->id) }}" class="btn btn-info">Show</a>
+                <a href="{{ route('cars.edit', $car->id) }}" class="btn btn-warning">Edit</a>
+                <a href="{{ route('cars.add-features', $car->id) }}" class="btn btn-primary">Add Features</a>
+                <form action="{{ route('cars.destroy', $car->id) }}" method="POST" style="display:inline;">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
                 </td>
             </tr>
             @endforeach

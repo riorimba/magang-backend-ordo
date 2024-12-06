@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+
 <div class="container">
         <h1>Car Details</h1>
         <table class="table table-bordered">
@@ -29,6 +30,23 @@
                 <td>{{ $car->manufacture_id }}</td>
             </tr>
         </table>
+
+        <h2>Features</h2>
+        
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    @if($car->features->isEmpty())
+                        <p>No features for this car.</p>
+                    @endif
+                    @foreach($car->features as $feature)
+                        <td>{{ $feature->name }}</td>
+                    @endforeach
+                </tr>
+            </thead>
+        </table>
+        
+        
         <a href="{{ route('cars.index') }}" class="btn btn-primary">Back to List</a>
     </div>
 @endsection
