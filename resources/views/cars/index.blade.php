@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-        <h2>Car CRUD</h2>
+        <h2>Cars CRUD</h2>
         <a href="{{ route('cars.create') }}" class="btn btn-success">Create New Car</a>
         <table class="table table-bordered">
             <tr>

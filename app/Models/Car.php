@@ -16,10 +16,15 @@ class Car extends Model
         'type',
         'price',
         'year',
+        'manufacture_id'
     ];
 
     public function manufacture()
     {
         return $this->hasOne(Manufacture::class);
+    }
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
     }
 }
