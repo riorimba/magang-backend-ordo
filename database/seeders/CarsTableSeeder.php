@@ -22,9 +22,23 @@ class CarsTableSeeder extends Seeder
                 'manufacture_id' => 1,
             ],
             [
+                'name' => 'Toyota Supra bpk',
+                'type' => 'Sedan',
+                'price' => 20000999,
+                'year' => '2045',
+                'manufacture_id' => 1,
+            ],
+            [
                 'name' => 'Honda Civic',
                 'type' => 'Sedan',
                 'price' => 22000,
+                'year' => '2021',
+                'manufacture_id' => 2,
+            ],
+            [
+                'name' => 'Honda Civic TURBOOO',
+                'type' => 'Sedan',
+                'price' => 220000,
                 'year' => '2021',
                 'manufacture_id' => 2,
             ],

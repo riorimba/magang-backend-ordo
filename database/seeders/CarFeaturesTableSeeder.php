@@ -26,6 +26,14 @@ class CarFeaturesTableSeeder extends Seeder
                 'car_id' => 1,
                 'feature_id' => 3,
             ],
+            [
+                'car_id' => 4,
+                'feature_id' => 4,
+            ],
+            [
+                'car_id' => 4,
+                'feature_id' => 5,
+            ],
         ]);
     }
 }

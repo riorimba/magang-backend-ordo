@@ -32,6 +32,12 @@ class ReviewsTableSeeder extends Seeder
                 'comment' => 'Okay car',
                 'car_id' => 2,
             ],
+            [
+                'rating' => 8,
+                'name' => 'Nurilmi',
+                'comment' => 'Saya Suka turbo',
+                'car_id' => 4,
+            ],
         ]);
     }
 }

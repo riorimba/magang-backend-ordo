@@ -26,6 +26,14 @@ class FeaturesTableSeeder extends Seeder
                 'id' => 3,
                 'name' => 'Keyless Entry',
             ],
+            [
+                'id' => 4,
+                'name' => 'TURBO',
+            ],
+            [
+                'id' => 5,
+                'name' => 'LED Headlights',
+            ],
         ]);
     }
 }
